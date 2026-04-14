@@ -27,18 +27,10 @@ export class ActionExecutor {
     try {
       if (this.action === 'click-button') {
         clickButtonById(this.id);
-        // if (!(element instanceof HTMLButtonElement)) {
-        //   throw new Error(`Element with ID "${this.id}" is not a button.`);
-        // }
-        // element.click();
         console.log(`Button "${this.id}" clicked.`);
       } else if (this.action === 'fill-text') {
         fillTextField(this.id, this.payload);
-        // if (!(element instanceof HTMLInputElement) && !(element instanceof HTMLTextAreaElement)) {
-        //   throw new Error(`Element with ID "${this.id}" is not a text field.`);
-        // }
-        // element.value = this.payload;
-        // console.log(`Text field "${this.id}" filled with: "${this.payload}"`);
+        console.log(`Text field "${this.id}" filled with: "${this.payload}"`);
       }
     } catch (error) {
       alert(error instanceof Error ? error.message : 'An error occurred.');
