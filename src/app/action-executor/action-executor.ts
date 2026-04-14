@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { clickButtonById, fillTextField } from '../WebExecutor/Interactions';
+import { checkCheckboxById, clickButtonById, fillTextField } from '../WebExecutor/Interactions';
 
 type ActionType = 'click-button' | 'fill-text';
 
@@ -31,6 +31,9 @@ export class ActionExecutor {
       } else if (this.action === 'fill-text') {
         fillTextField(this.id, this.payload);
         console.log(`Text field "${this.id}" filled with: "${this.payload}"`);
+      } else if (this.action === 'check-checkbox') {
+        checkCheckboxById(this.id);
+        console.log(`Checkbox "${this.id}" checked.`);
       }
     } catch (error) {
       alert(error instanceof Error ? error.message : 'An error occurred.');

@@ -41,3 +41,23 @@ export function fillTextField(fieldId: string, text: string): void {
   field.value = text;
   console.log(`Text field "${fieldId}" filled with: "${text}"`);
 }
+
+/**
+ * Checks a checkbox element by its ID.
+ * @param checkboxId - The ID of the checkbox to check.
+ * @throws Will throw an error if the checkbox is not found.
+ */
+export function checkCheckboxById(checkboxId: string): void {
+  const checkbox = document.getElementById(checkboxId) as HTMLInputElement | null;
+
+  if (!checkbox) {
+    throw new Error(`Checkbox with ID "${checkboxId}" not found.`);
+  }
+
+  if (checkbox.type !== 'checkbox') {
+    throw new Error(`Element with ID "${checkboxId}" is not a checkbox.`);
+  }
+
+  checkbox.checked = true;
+}
+
