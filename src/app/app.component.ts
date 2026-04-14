@@ -1,9 +1,13 @@
 import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { CommandExecutorService } from './command-executor.service';
+import { CommandExecutorComponent } from './command-executor/command-executor.component';
+import {ActionExecutor} from './action-executor/action-executor';
+import { TestComponent } from './test-component/test-component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
+  imports: [CommandExecutorComponent, ActionExecutor, TestComponent],
 })
 export class AppComponent implements AfterViewInit {
   @ViewChild('userInput') userInput!: ElementRef;

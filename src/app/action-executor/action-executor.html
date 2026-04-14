@@ -1,0 +1,41 @@
+<div style="padding: 16px; max-width: 400px; border: 1px solid #ccc; border-radius: 4px;">
+  <h2>Element Action Form</h2>
+  <div style="margin-bottom: 12px;">
+    <label>
+      Action:
+      <input
+        type="text"
+        [(ngModel)]="action"
+
+        style="margin-left: 8px;"
+      />
+    </label>
+  </div>
+  <div style="margin-bottom: 12px;">
+    <label>
+      Element ID:
+      <input
+        type="text"
+        [(ngModel)]="id"
+
+        style="margin-left: 8px;"
+      />
+    </label>
+  </div>
+  <div style="margin-bottom: 12px;">
+    <label>
+      Text to Fill:
+      <input
+        type="text"
+        [(ngModel)]="payload"
+        style="margin-left: 8px;"
+      />
+    </label>
+  </div>
+  <button
+    (click)="executeAction()"
+    style="padding: 8px 16px; background-color: #007bff; color: white; border: none; border-radius: 4px;"
+  >
+    Execute
+  </button>
+</div>
