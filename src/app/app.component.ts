@@ -14,7 +14,6 @@ export class AppComponent implements AfterViewInit {
   constructor(private executor: CommandExecutorService) {}
 
   ngAfterViewInit(): void {
-    // Example commands
     this.executor.execute({ type: 'SET_TITLE', payload: 'Angular Command Test' });
     this.executor.execute({ type: 'FILL_INPUT', selector: '#userInput', value: 'Hello, Angular!' });
   }
