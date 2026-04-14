@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { checkCheckboxById, clickButtonById, fillTextField } from '../WebExecutor/Interactions';
+import { checkCheckboxById, clickButtonById, fillTextField, selectRadioButtonById } from '../WebExecutor/Interactions';
 
 type ActionType = 'click-button' | 'fill-text';
 
@@ -34,6 +34,9 @@ export class ActionExecutor {
       } else if (this.action === 'check-checkbox') {
         checkCheckboxById(this.id);
         console.log(`Checkbox "${this.id}" checked.`);
+      } else if (this.action === 'select-radio'){
+        selectRadioButtonById(this.id);
+        console.log(`Radio "${this.id}" selected.`);
       }
     } catch (error) {
       alert(error instanceof Error ? error.message : 'An error occurred.');

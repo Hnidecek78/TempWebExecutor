@@ -31,10 +31,7 @@ export function fillTextField(fieldId: string, text: string): void {
     throw new Error(`Text field with ID "${fieldId}" not found.`);
   }
 
-  if (
-    !(field instanceof HTMLInputElement) &&
-    !(field instanceof HTMLTextAreaElement)
-  ) {
+  if (!(field instanceof HTMLInputElement) && !(field instanceof HTMLTextAreaElement)) {
     throw new Error(`Element with ID "${fieldId}" is not a text field.`);
   }
 
@@ -61,3 +58,12 @@ export function checkCheckboxById(checkboxId: string): void {
   checkbox.checked = true;
 }
 
+export function selectRadioButtonById(id: string): void {
+  const radioButton = document.getElementById(id) as HTMLInputElement | null;
+
+  if (radioButton && radioButton.type === 'radio') {
+    radioButton.checked = true;
+  } else {
+    console.error(`Radio button with ID "${id}" not found or is not a radio button.`);
+  }
+}
