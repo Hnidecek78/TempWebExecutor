@@ -45,6 +45,14 @@ export function fillTextField(fieldId: string, text: string): void {
  * @throws Will throw an error if the checkbox is not found.
  */
 export function checkCheckboxById(checkboxId: string): void {
+  setCheckboxValue(checkboxId, true);
+}
+
+export function uncheckCheckboxById(checkboxId: string): void {
+  setCheckboxValue(checkboxId, false);
+}
+
+function setCheckboxValue(checkboxId: string, value: boolean): void {
   const checkbox = document.getElementById(checkboxId) as HTMLInputElement | null;
 
   if (!checkbox) {
@@ -55,7 +63,7 @@ export function checkCheckboxById(checkboxId: string): void {
     throw new Error(`Element with ID "${checkboxId}" is not a checkbox.`);
   }
 
-  checkbox.checked = true;
+  checkbox.checked = value;
 }
 
 export function selectRadioButtonById(id: string): void {
