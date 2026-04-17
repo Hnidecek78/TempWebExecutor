@@ -1,14 +1,19 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { checkCheckboxById, clickButtonById, fillTextField, selectRadioButtonById } from '../WebExecutor/Interactions';
+import {
+  checkCheckboxById,
+  clickButtonById,
+  fillTextField,
+  selectRadioButtonById,
+  uncheckCheckboxById,
+} from '../WebExecutor/Interactions';
 
 type ActionType = 'click-button' | 'fill-text';
-
 
 @Component({
   selector: 'app-action-executor',
   standalone: true,
-  imports: [ FormsModule],
+  imports: [FormsModule],
   templateUrl: './action-executor.html',
   styleUrl: './action-executor.css',
 })
@@ -34,7 +39,10 @@ export class ActionExecutor {
       } else if (this.action === 'check-checkbox') {
         checkCheckboxById(this.id);
         console.log(`Checkbox "${this.id}" checked.`);
-      } else if (this.action === 'select-radio'){
+      } else if (this.action === 'uncheck-checkbox') {
+        uncheckCheckboxById(this.id);
+        console.log(`Checkbox "${this.id}" checked.`);
+      } else if (this.action === 'select-radio') {
         selectRadioButtonById(this.id);
         console.log(`Radio "${this.id}" selected.`);
       }
